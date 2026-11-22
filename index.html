@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Profile Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 48px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .org-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .org-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid #c93b3b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c93b3b;
+      font-weight: 800;
+      font-size: 13px;
+      text-align: center;
+      flex-shrink: 0;
+      background-color: #fdf6f6;
+    }
+
+    .org-title-group h1 {
+      color: #c93b3b;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .org-title-group p {
+      color: #c93b3b;
+      font-size: 12.5px;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    .role-heading {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #111111;
+      margin-bottom: 20px;
+    }
+
+    .profile-card {
+      background-color: #f7f8fa;
+      border-radius: 4px;
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .photo-box {
+      width: 125px;
+      height: 145px;
+      margin: 0 auto 18px;
+      background-color: #e2e6ec;
+      border: 1px solid #dcdfe4;
+      overflow: hidden;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .qr-box {
+      width: 145px;
+      height: 145px;
+      margin: 10px auto 14px;
+      background-color: #ffffff;
+      padding: 8px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .reg-label {
+      font-size: 13px;
+      color: #555555;
+      margin-bottom: 8px;
+    }
+
+    .reg-badge {
+      background-color: #28a745;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 999px;
+      display: block;
+      width: 100%;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .member-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111111;
+      text-transform: uppercase;
+      line-height: 1.3;
+      white-space: pre-line;
+    }
+
+    .meta-center {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .meta-item {
+      margin-bottom: 16px;
+    }
+
+    .meta-item .label {
+      font-size: 13px;
+      color: #555555;
+      margin-bottom: 2px;
+    }
+
+    .meta-item .val-teal {
+      font-size: 20px;
+      font-weight: 700;
+      color: #179bb0;
+    }
+
+    .meta-item .val-green {
+      font-size: 20px;
+      font-weight: 700;
+      color: #28a745;
+    }
+
+    .meta-item .val-dark {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .details-list {
+      text-align: left;
+      padding: 0 8px;
+    }
+
+    .detail-row {
+      margin-bottom: 16px;
+    }
+
+    .detail-row .label {
+      font-size: 13.5px;
+      color: #555555;
+      margin-bottom: 4px;
+    }
+
+    .detail-row .value {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.4;
+    }
+
+    .status-active {
+      font-size: 18px;
+      font-weight: 800;
+      color: #28a745;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-info {
+      margin-top: 24px;
+      padding: 0 8px;
+      font-size: 13px;
+      color: #333333;
+    }
+
+    .footer-actions {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .footer-actions a {
+      color: #179bb0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header class="org-header">
+      <div class="org-logo" id="orgLogoText">MY<br>ORG</div>
+      <div class="org-title-group">
+        <h1 id="orgShort">MYORG</h1>
+        <p id="orgSub">Custom Profile &amp; ID Card Layout<br>Front-End Design Template</p>
+      </div>
+    </header>
+
+    <h2 class="role-heading" id="roleTitle">Registered Member<br>Profile</h2>
+
+    <section class="profile-card">
+      <div class="photo-box">
+        <img id="photoOne" src="https://via.placeholder.com/150x180?text=Photo+1" alt="Profile Photo 1" />
+      </div>
+
+      <div class="photo-box">
+        <img id="photoTwo" src="https://via.placeholder.com/150x180?text=Photo+2" alt="Profile Photo 2" />
+      </div>
+
+      <div class="qr-box">
+        <img id="qrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=DEMO-001" alt="QR Code" />
+      </div>
+
+      <p class="reg-label">Member ID Number</p>
+      <div class="reg-badge" id="regNumber">ID-10001</div>
+
+      <h3 class="member-name" id="fullName">DEMO MEMBER NAME</h3>
+    </section>
+
+    <section class="meta-center">
+      <div class="meta-item">
+        <div class="label">Reg. Year</div>
+        <div class="val-teal" id="regYear">2025</div>
+      </div>
+
+      <div class="meta-item">
+        <div class="label">Reg. Valid Till</div>
+        <div class="val-green" id="validTill">05/2035</div>
+      </div>
+
+      <div class="meta-item">
+        <div class="label">Portable Card No</div>
+        <div class="val-dark" id="cardNo">Not Applicable</div>
+      </div>
+    </section>
+
+    <section class="details-list">
+      <div class="detail-row">
+        <div class="label">Date of Birth</div>
+        <div class="value" id="dob">**/**/2001</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="label">Blood Group</div>
+        <div class="value" id="bloodGroup">O+</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="label">Father's Name</div>
+        <div class="value" id="fatherName">SAMPLE FATHER NAME</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="label">Mother's Name</div>
+        <div class="value" id="motherName">SAMPLE MOTHER NAME</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="label">Address</div>
+        <div class="value" id="address">SAMPLE ADDRESS, DHAKA.</div>
+      </div>
+
+      <div class="detail-row">
+        <div class="label">Status</div>
+        <div class="status-active" id="statusText">ACTIVE</div>
+      </div>
+    </section>
+
+    <footer class="footer-info">
+      <p id="timestamp">Generated on: 22/11/2026 11:31 AM</p>
+      <div class="footer-actions">
+        <a href="#top">Back to Top</a> · <a href="javascript:window.print()">Print Page</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Apnar nijer moto data o chobir link ekhane bosan
+    const profileData = {
+      orgShort: "MYORG",
+      orgSub: "Custom Profile Card Template\nFront-End Layout Only",
+      roleTitle: "Registered Member\nProfile",
+      photoOne: "https://via.placeholder.com/150x180?text=Photo+1",
+      photoTwo: "https://via.placeholder.com/150x180?text=Photo+2",
+      qrData: "https://example.com/profile/ID-10001",
+      regNumber: "ID-10001",
+      fullName: "DEMO MEMBER\nNAME",
+      regYear: "2025",
+      validTill: "05/2035",
+      cardNo: "Not Applicable",
+      dob: "**/**/2001",
+      bloodGroup: "O+",
+      fatherName: "SAMPLE FATHER NAME",
+      motherName: "SAMPLE MOTHER NAME",
+      address: "SAMPLE ROAD, CITY, COUNTRY.",
+      statusText: "ACTIVE"
+    };
+
+    document.getElementById("orgShort").textContent = profileData.orgShort;
+    document.getElementById("orgSub").innerText = profileData.orgSub;
+    document.getElementById("roleTitle").innerText = profileData.roleTitle;
+    document.getElementById("photoOne").src = profileData.photoOne;
+    document.getElementById("photoTwo").src = profileData.photoTwo;
+    document.getElementById("qrCode").src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+      encodeURIComponent(profileData.qrData);
+    document.getElementById("regNumber").textContent = profileData.regNumber;
+    document.getElementById("fullName").innerText = profileData.fullName;
+    document.getElementById("regYear").textContent = profileData.regYear;
+    document.getElementById("validTill").textContent = profileData.validTill;
+    document.getElementById("cardNo").textContent = profileData.cardNo;
+    document.getElementById("dob").textContent = profileData.dob;
+    document.getElementById("bloodGroup").textContent = profileData.bloodGroup;
+    document.getElementById("fatherName").textContent = profileData.fatherName;
+    document.getElementById("motherName").textContent = profileData.motherName;
+    document.getElementById("address").textContent = profileData.address;
+    document.getElementById("statusText").textContent = profileData.statusText;
+  </script>
+
+</body>
+</html>
