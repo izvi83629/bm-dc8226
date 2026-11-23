@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Member Verification Layout</title>
+  <title>Member Profile Layout</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,87 +13,95 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f3f4f6;
+      background-color: #ffffff;
       color: #111827;
       display: flex;
       justify-content: center;
-      padding: 20px 14px 40px;
+      padding: 18px 14px 44px;
     }
 
     .page-wrapper {
       width: 100%;
-      max-width: 440px;
+      max-width: 430px;
       background-color: #ffffff;
-      border-radius: 10px;
-      padding: 20px 18px 28px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     }
 
-    /* Header Layout */
     .org-header {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
     .org-seal {
-      width: 82px;
-      height: 82px;
+      width: 84px;
+      height: 84px;
       border-radius: 50%;
-      border: 2.5px solid #c93b3b;
+      border: 2.5px solid #c83737;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: #c93b3b;
+      color: #c83737;
       font-weight: 800;
       font-size: 11px;
       line-height: 1.15;
       padding: 6px;
       flex-shrink: 0;
       background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .org-seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .org-brand h1 {
-      color: #c93b3b;
-      font-size: 38px;
+      color: #d62828;
+      font-size: 40px;
       font-weight: 800;
-      line-height: 0.98;
-      letter-spacing: -0.5px;
+      line-height: 0.96;
+      letter-spacing: -0.6px;
     }
 
-    .org-brand p {
-      color: #b83333;
+    .org-brand .sub-en {
+      color: #c83737;
+      font-size: 12.5px;
+      line-height: 1.2;
+      margin-top: 4px;
+    }
+
+    .org-brand .sub-bn {
+      color: #c83737;
       font-size: 12.5px;
       line-height: 1.25;
-      margin-top: 5px;
-      white-space: pre-line;
+      margin-top: 2px;
     }
 
-    .page-heading {
-      font-size: 28px;
+    .section-title {
+      font-size: 29px;
       font-weight: 700;
       color: #111827;
-      line-height: 1.15;
+      line-height: 1.12;
       margin-bottom: 18px;
       white-space: pre-line;
     }
 
-    /* Profile Card Container */
     .profile-card {
       background-color: #f4f5f7;
-      border-radius: 6px;
-      padding: 22px 16px 26px;
+      padding: 24px 16px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-bottom: 26px;
     }
 
     .photo-box {
-      width: 155px;
-      height: 185px;
+      width: 156px;
+      height: 186px;
       background-color: #d1d5db;
       border: 1px solid #c5cad2;
       display: flex;
@@ -114,8 +122,8 @@
     }
 
     .qr-box {
-      width: 170px;
-      height: 170px;
+      width: 172px;
+      height: 172px;
       background-color: #ffffff;
       padding: 8px;
       border: 1px solid #e5e7eb;
@@ -133,137 +141,235 @@
       display: block;
     }
 
-    .badge-label {
-      font-size: 13px;
+    .badge-caption {
+      font-size: 13.5px;
       color: #4b5563;
       margin-bottom: 8px;
     }
 
     .badge-pill {
-      background-color: #16a34a;
+      background-color: #28a745;
       color: #ffffff;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
-      padding: 8px 34px;
+      padding: 8px 38px;
       border-radius: 999px;
       margin-bottom: 18px;
       letter-spacing: 0.4px;
     }
 
     .member-name {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 800;
       text-transform: uppercase;
       color: #111827;
-      margin-bottom: 14px;
+      line-height: 1.25;
       letter-spacing: 0.4px;
     }
 
-    .details-list {
-      width: 100%;
-      font-size: 14px;
-      line-height: 1.55;
-      color: #1f2937;
+    .top-meta-section {
+      text-align: center;
+      padding: 0 12px;
+      margin-bottom: 22px;
     }
 
-    .details-list p {
-      margin-bottom: 6px;
+    .top-meta-block {
+      margin-bottom: 18px;
+    }
+
+    .top-meta-label {
+      font-size: 14px;
+      color: #4b5563;
+      margin-bottom: 3px;
+    }
+
+    .top-meta-value {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .top-meta-value.year {
+      color: #1677b3;
+    }
+
+    .top-meta-value.valid {
+      color: #28a745;
+    }
+
+    .top-meta-value.portable {
+      color: #111827;
+    }
+
+    .details-section {
+      text-align: left;
+      padding: 0 16px;
+    }
+
+    .detail-block {
+      margin-bottom: 20px;
+    }
+
+    .detail-label {
+      font-size: 14px;
+      color: #4b5563;
+      margin-bottom: 3px;
+    }
+
+    .detail-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.3;
       word-break: break-word;
     }
 
-    .details-list strong {
-      font-weight: 700;
-      color: #111827;
+    .detail-value.status-active {
+      color: #28a745;
+    }
+
+    .footer-meta {
+      margin-top: 26px;
+      padding: 0 16px;
+      font-size: 13px;
+      color: #4b5563;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .footer-actions {
+      margin-top: 8px;
+      font-size: 13.5px;
+      color: #2563eb;
+    }
+
+    .footer-actions a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-right: 10px;
     }
   </style>
 </head>
-<body>
+<body id="top">
   <main class="page-wrapper">
-    <!-- Top Header -->
     <header class="org-header">
-      <div class="org-seal" id="sealText">CUSTOM<br />SEAL</div>
+      <div class="org-seal" id="sealBox">CUSTOM<br />SEAL</div>
       <div class="org-brand">
-        <h1 id="brandTitle">YOURORG</h1>
-        <p id="brandSubtitle">Custom Organization Subtitle Line 1
-কাস্টম সাবটাইটেল দ্বিতীয় লাইন</p>
+        <h1 id="brandTitle">CUSTOMORG</h1>
+        <p class="sub-en" id="subEn">Custom Organization Title Line</p>
+        <p class="sub-bn" id="subBn">কাস্টম প্রতিষ্ঠানের সাবটাইটেল</p>
       </div>
     </header>
 
-    <!-- Page Title -->
-    <h2 class="page-heading" id="pageTitle">Registered Member
+    <h2 class="section-title" id="sectionTitle">Registered Member
 Profile</h2>
 
-    <!-- Profile Card -->
     <section class="profile-card">
-      <div class="photo-box" id="photo1Container">Photo 1</div>
-      <div class="photo-box" id="photo2Container">Photo 2</div>
+      <div class="photo-box" id="photo1Box">Photo 1</div>
+      <div class="photo-box" id="photo2Box">Photo 2</div>
 
-      <div class="qr-box" id="qrContainer">
-        <!-- QR image goes here -->
-      </div>
+      <div class="qr-box" id="qrBox"></div>
 
-      <div class="badge-label" id="badgeLabel">Member ID Number</div>
-      <div class="badge-pill" id="badgeValue">ID-10001</div>
+      <div class="badge-caption" id="badgeCaption">Member ID Number</div>
+      <div class="badge-pill" id="badgePill">D-13005</div>
 
-      <div class="member-name" id="memberName">SAMPLE MEMBER NAME</div>
-
-      <div class="details-list" id="detailsList"></div>
+      <div class="member-name" id="memberName">SAYIM HOSSEN ASIF</div>
     </section>
+
+    <section class="top-meta-section" id="topMetaSection"></section>
+
+    <section class="details-section" id="detailsSection"></section>
+
+    <footer class="footer-meta">
+      <div id="generatedText">Generated on: 23/11/2026 12:09 PM</div>
+      <div class="footer-actions">
+        <a href="#top">Back to Top</a> · <a href="#" onclick="window.print(); return false;">Print Page</a>
+      </div>
+    </footer>
   </main>
 
   <script>
-    // এখানে আপনার নিজের কাস্টম তথ্য ও ছবির নাম/লিংক বসান
     const profileData = {
       sealText: "CUSTOM\nSEAL",
-      brandTitle: "YOURORG",
-      brandSubtitle: "Custom Organization Subtitle Line 1\nকাস্টম সাবটাইটেল দ্বিতীয় লাইন",
-      pageTitle: "Registered Member\nProfile",
-      photo1: "", // যেমন: "photo1.jpg" অথবা কোনো ছবির URL
-      photo2: "", // যেমন: "photo2.jpg" অথবা কোনো ছবির URL
-      qrCode: "", // যেমন: "qr.png" অথবা QR ছবির URL
-      badgeLabel: "Member ID Number",
-      badgeValue: "ID-10001",
-      memberName: "SAMPLE MEMBER NAME",
+      sealImage: "",
+      brandTitle: "CUSTOMORG",
+      subEn: "Custom Organization Title Line",
+      subBn: "কাস্টম প্রতিষ্ঠানের সাবটাইটেল",
+      sectionTitle: "Registered Member\nProfile",
+      photo1: "photo1.jpg?v=1",
+      photo2: "photo1.jpg?v=1",
+      qrCode: "",
+      badgeCaption: "Member ID Number",
+      badgePill: "D-13005",
+      memberName: "SAYIM HOSSEN ASIF",
+      generatedOn: "Generated on: 23/11/2026 12:09 PM",
+      topMeta: [
+        { label: "Reg. Year", value: "2025", cls: "year" },
+        { label: "Reg. Valid Till", value: "2035", cls: "valid" },
+        { label: "Portable Card No", value: "Not Applicable", cls: "portable" }
+      ],
       details: [
-        { label: "Status", value: "Active" },
-        { label: "Email", value: "member@example.com" },
-        { label: "Phone", value: "+880 1XXX-XXXXXX" },
-        { label: "Department", value: "General Member" },
-        { label: "Issue Date", value: "01 Jan 2026" }
+        { label: "Date of Birth", value: "**/**/2001", cls: "" },
+        { label: "Blood Group", value: "A+", cls: "" },
+        { label: "Father's Name", value: "SURUJ JAMAN", cls: "" },
+        { label: "Mother's Name", value: "JURNA BEGUM", cls: "" },
+        { label: "Address", value: "VILL.- SHORALIABARI P.O SREEPUR ,  P,S GAZIPUR ,  DISTRICT , GAZIPUR", cls: "" },
+        { label: "Status", value: "Active", cls: "status-active" }
       ]
     };
 
-    function renderPhoto(containerId, src, fallbackText) {
-      const el = document.getElementById(containerId);
+    const sealEl = document.getElementById("sealBox");
+    if (profileData.sealImage && profileData.sealImage.trim() !== "") {
+      sealEl.innerHTML = `<img src="${profileData.sealImage}" alt="Logo" />`;
+    } else {
+      sealEl.innerHTML = profileData.sealText.replace(/\n/g, "<br />");
+    }
+
+    document.getElementById("brandTitle").textContent = profileData.brandTitle;
+    document.getElementById("subEn").textContent = profileData.subEn;
+    document.getElementById("subBn").textContent = profileData.subBn;
+    document.getElementById("sectionTitle").textContent = profileData.sectionTitle;
+
+    function renderImage(id, src, fallback) {
+      const el = document.getElementById(id);
       if (src && src.trim() !== "") {
-        el.innerHTML = `<img src="${src}" alt="${fallbackText}" />`;
+        el.innerHTML = `<img src="${src}" alt="${fallback}" />`;
       } else {
-        el.textContent = fallbackText;
+        el.textContent = fallback;
       }
     }
 
-    document.getElementById("sealText").innerHTML = profileData.sealText.replace(/\n/g, "<br />");
-    document.getElementById("brandTitle").textContent = profileData.brandTitle;
-    document.getElementById("brandSubtitle").textContent = profileData.brandSubtitle;
-    document.getElementById("pageTitle").textContent = profileData.pageTitle;
+    renderImage("photo1Box", profileData.photo1, "Photo 1");
+    renderImage("photo2Box", profileData.photo2, "Photo 2");
 
-    renderPhoto("photo1Container", profileData.photo1, "Photo 1");
-    renderPhoto("photo2Container", profileData.photo2, "Photo 2");
-
-    const qrEl = document.getElementById("qrContainer");
+    const qrEl = document.getElementById("qrBox");
     if (profileData.qrCode && profileData.qrCode.trim() !== "") {
       qrEl.innerHTML = `<img src="${profileData.qrCode}" alt="QR Code" />`;
     } else {
-      qrEl.innerHTML = `<span style="font-size:12px;color:#6b7280;">QR Code Area</span>`;
+      qrEl.innerHTML = `<span style="font-size:12px;color:#6b7280;">QR Code</span>`;
     }
 
-    document.getElementById("badgeLabel").textContent = profileData.badgeLabel;
-    document.getElementById("badgeValue").textContent = profileData.badgeValue;
+    document.getElementById("badgeCaption").textContent = profileData.badgeCaption;
+    document.getElementById("badgePill").textContent = profileData.badgePill;
     document.getElementById("memberName").textContent = profileData.memberName;
+    document.getElementById("generatedText").textContent = profileData.generatedOn;
 
-    const detailsContainer = document.getElementById("detailsList");
-    detailsContainer.innerHTML = profileData.details
-      .map(item => `<p><strong>${item.label}:</strong> ${item.value}</p>`)
+    document.getElementById("topMetaSection").innerHTML = profileData.topMeta
+      .map(item => `
+        <div class="top-meta-block">
+          <div class="top-meta-label">${item.label}</div>
+          <div class="top-meta-value ${item.cls}">${item.value}</div>
+        </div>
+      `)
+      .join("");
+
+    document.getElementById("detailsSection").innerHTML = profileData.details
+      .map(item => `
+        <div class="detail-block">
+          <div class="detail-label">${item.label}</div>
+          <div class="detail-value ${item.cls}">${item.value}</div>
+        </div>
+      `)
       .join("");
   </script>
 </body>
