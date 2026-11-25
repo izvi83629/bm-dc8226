@@ -31,19 +31,30 @@
       padding-top: 4px;
     }
 
-    .paste-banner {
-      background-color: #b8f2f2;
-      padding: 10px 14px;
+    .status-banner-wrap {
       display: inline-block;
       max-width: 100%;
     }
 
+    .paste-banner {
+      background-color: #b8f2f2;
+      padding: 10px 14px;
+      display: inline-block;
+    }
+
     .paste-banner h1 {
-      color: #111827;
+      color: #0f766e;
       font-size: 24px;
       font-weight: 700;
       line-height: 1.2;
-      white-space: pre-line;
+    }
+
+    .admin-approve-text {
+      color: #dc2626;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-top: 6px;
     }
 
     .section-title {
@@ -219,8 +230,11 @@
 <body id="top">
   <main class="page-wrapper">
     <header class="org-header">
-      <div class="paste-banner">
-        <h1 id="bannerText">Pay $43 to publish</h1>
+      <div class="status-banner-wrap">
+        <div class="paste-banner">
+          <h1 id="paymentText">Payment Complete</h1>
+        </div>
+        <div class="admin-approve-text" id="adminText">Need Admin Approve</div>
       </div>
     </header>
 
@@ -244,7 +258,7 @@ Profile</h2>
     <section class="details-section" id="detailsSection"></section>
 
     <footer class="footer-meta">
-      <div id="generatedText">Generated on: 23/11/2026 12:46 PM</div>
+      <div id="generatedText">Generated on: 25/11/2026 11:28 AM</div>
       <div class="footer-actions">
         <a href="#top">Back to Top</a> · <a href="#" onclick="window.print(); return false;">Print Page</a>
       </div>
@@ -253,7 +267,8 @@ Profile</h2>
 
   <script>
     const profileData = {
-      bannerText: "Pay $43 to publish",
+      paymentText: "Payment Complete",
+      adminText: "Need Admin Approve",
       sectionTitle: "Registered Member\nProfile",
       photo1: "photo1.jpg?v=2",
       photo2: "photo1.jpg?v=2",
@@ -261,7 +276,7 @@ Profile</h2>
       badgeCaption: "Member ID Number",
       badgePill: "D-13005",
       memberName: "SAYIM HOSSEN ASIF",
-      generatedOn: "Generated on: 23/11/2026 12:46 PM",
+      generatedOn: "Generated on: 25/11/2026 11:28 AM",
       topMeta: [
         { label: "Reg. Year", value: "2025", cls: "year" },
         { label: "Reg. Valid Till", value: "05/2035", cls: "valid" },
@@ -277,7 +292,8 @@ Profile</h2>
       ]
     };
 
-    document.getElementById("bannerText").textContent = profileData.bannerText;
+    document.getElementById("paymentText").textContent = profileData.paymentText;
+    document.getElementById("adminText").textContent = profileData.adminText;
     document.getElementById("sectionTitle").textContent = profileData.sectionTitle;
 
     function renderImage(id, src, fallback) {
